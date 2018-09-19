@@ -1,0 +1,42 @@
+input[type=text],[type="password"], select {
+    width: 100%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border-radius: 0px;
+    box-sizing: border-box;
+}
+
+input [type=submit],select{
+    width:100%;
+    padding: 4px 10px;
+}
+label {
+    display: inline-block;
+    margin-bottom: 0px;
+    font-size: 15px;
+}
+.card {
+    box-shadow:  0 0 10px rgba(46, 59, 125, 0.23);
+    transition: 0.3s;
+    width: 40%;
+}
+.error{
+    font-size: 14px;
+}
+.section {
+    display: flex;
+    max-width: 980px;
+    margin: 0 auto;
+    justify-content: space-between;
+    padding: 85px 0;
+}
+.img-size{
+    height: 400px;
+    width: 440px;
+    //box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+// .bg-screens{
+// background-color: #f6f8f9;
+// }
+

@@ -1,0 +1,45 @@
+.title-clr{
+color: #13a0f5;
+}
+.img-size{
+    height: 450px;
+    width: 537px;
+    //box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.bt-clr{
+    background:#13a0f5;
+    color: white;
+    padding: 5px 20px;
+    font-size: 20px;
+}
+.image-cont{
+    text-align: center;
+}
+.body-font{
+    //color: #13a0f5;
+    font-size: 18px;
+    //font-weight: bold;
+    
+}
+.bg{
+    background-color: #d9e1e9;
+}
+
+.section {
+    display: flex;
+    max-width: 980px;
+    margin: 0 auto;
+    justify-content: space-between;
+    padding: 85px 0;
+}
+.btn-large{
+padding: .8rem 4rem;
+}
+.btn-outline-clr{
+    outline-color: #13a0f5;
+}
+.img-bg{
+    background-repeat: no-repeat;
+    background-position: center;
+        background-image: url("https://image.shutterstock.com/z/stock-vector-men-and-women-dressed-in-smart-clothes-take-part-in-business-meeting-formal-discussion-conference-1090843373.jpg");
+}

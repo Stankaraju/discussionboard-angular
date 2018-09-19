@@ -1,0 +1,115 @@
+<div class="container mt-5">
+    <div class="inline mt-3" *ngIf="topic">
+        <a class="font-body" routerLink="/view">
+            <i class="fa fa-undo"></i> Back</a>
+        <a class=" font-body pull-right" href="/topic/{{topic.id}}">
+            <i class="fa fa-refresh"></i> Refresh</a>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="container card card-body mt-2" *ngIf="topic">
+                <h5 class="text-primary">{{topic.tName}}</h5>
+                <p class="font-body text-secondary font-body">{{topic.tdescription}}</p>
+                <div class="inline buttons-font" *ngIf="user">
+                    <a class="mr-2 text-secondary">
+                        <p class="text-secondary font-size mb-0 ">Created By</p>
+                        {{topic.createdBy}}
+                        <span class="font-size font-italic"> {{ topic.createdDate | date:' MMM dd, yyyy'}} </span>
+                    </a>
+                    <button (click)="onDelete(topic)" routerLink="/view" *ngIf="isLoggedInuser == topic.createdBy" class="btn btn-link buttons-font text-secondary pull-right">
+                        <i class="fa fa-del fa-trash"></i> Delete</button>
+                    
+                    <button class="btn btn-link buttons-font text-secondary pull-right">
+                        <i class="fa fa-comnt fa-comment-o"></i> {{topic.replies.length}} Comments </button>
+
+                    <!-- <a (click)="clicked = !clicked; onLike(); disable = true;" routerLink="/topic/{{topic.id}}" class="mr-4 pull-right text-secondary" >
+                        <i [ngClass]="clicked ? 'fa fa-heart': 'fa fa-heart-o'" aria-hidden="true" style="color:red;"></i> {{topic.likes.length}} Like</a> -->
+
+                        <button class=" buttons-font btn btn-link pull-right text-secondary " [disabled]="likedisable" (click) ="clicked = !clicked; onLike()"><i [ngClass]="clicked ? 'fa fa-heart': 'fa fa-heart-o'" aria-hidden="true" style="color:red;"></i> {{topic.likes.length}} Like   </button>
+
+
+                        <button (click)="show=!show" class="btn btn-link buttons-font text-secondary pull-right">
+                        <i class="fa fa-paperclip" aria-hidden="true"></i> {{topic.documents.length}} document</button>
+
+                    <a class="pull-right buttons-font btn btn-link text-secondary" *ngIf="isLoggedInuser == topic.createdBy" (click)="editTopic(topic)" href="edit/{{topic.id}}">
+                        <i class="fa fa-comnt fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+
+                    <button (click)="hide=!hide" routerLink="/topic/{{topic.id}}" class="btn btn-link buttons-font  text-secondary pull-right">
+                        <i class="fa  fa-reply fa-reply "></i> Reply</button>
+                </div>
+            </div>
+        </div>
+        <!-- list of documents -->
+    <div class="col-12" *ngIf="show">
+        <div class="card card-body">
+            <h6>List of Documents</h6>
+            <div class="mt-1" *ngFor="let p of topic.documents">
+                <a href="http://localhost:8080/download-document/{{p.id}}">{{p.name}}</a>
+                <!-- <a (click)="downloadDoc()">{{p.name}}</a> -->
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <!-- Reply body -->
+    <div class=" position mt-3 mb-5" *ngIf="hide">
+
+        <textarea rows="6" cols="100" [(ngModel)]="reply.replyText" class="form-control" name="textarea" id="textarea"> </textarea>
+        
+        <div class="inline mt-4">
+            <button routerLink ="/topic/{{topic.id}}" *ngIf="!isEditReply" (click)="onReply()" (click)="onNewReply($event)" class="btn  btn-primary pull-right">Post Reply</button>
+            <!-- <button *ngIf="isEditReply" (click)="updateReply()" class="btn btn-warning  pull-right">Update Reply</button> -->
+            <button class="btn btn-light pull-right mr-2">Cancel </button>
+            
+        </div>
+    </div>
+    
+    <div class="container mt-5 mb-5" *ngIf=" topic.replies &&  topic.replies.length > 0">
+        
+        <h5 class="font-sz text-secondary">Replies ({{topic.replies.length}})</h5>
+        <hr class="hr">
+        <div   class="container card-body text-secondary" *ngFor="let r of topic.replies">
+            <div class="media mt-3 mb-2" *ngIf="!isEditReply" >
+                <div style="display:none;" >{{r.id}}</div>
+                <div class="media-body ">
+                    <span class="text">
+                        <p class=" p font-weight-bold"> <i class="fa fa-user-circle fa-lg mr-1"></i> {{r.commentedBy}}</p>
+                    </span>
+                    <p class="ml-4" >{{r.replyText}}</p>
+                </div>
+                <div class="date-fontsize">
+                    {{r.createdDate | date:'d MMMM yy, h:mm a'}}
+                </div>
+            </div>
+            <div class="inline mb-4"  *ngIf="isLoggedInuser == r.commentedBy">
+                <a (click)="onRemove(r)" href="/topic/{{topic.id}}" class=" buttons-font mr-2 pull-right">
+                    <i class="fa fa-del fa-trash"></i> Delete
+                </a>
+                <!-- <a routerLink="/topic/{{topic.id}}" (click)="editReply(reply)" class="buttons-font mr-2 pull-right">
+                    <i class="fa fa-edit"></i> Edit
+                </a> -->
+            </div>
+            <!-- <hr class="mt-5"> -->
+        </div>
+        <!-- <div *ngIf="isEditReply" >
+            <textarea rows="6" cols="100" [(ngModel)]="reply.replyText" class="form-control" name="textarea" id="textarea"> </textarea>
+        </div>
+        <button (click)="updateReply()" class="btn btn-link" >updateReply</button> -->
+    </div>
+    <div class="container mt-3" *ngIf="!(topic.replies.length > 0)">
+        <h5 class="font-sz text-secondary">Replies</h5>
+        <hr class="hr">
+        <div>
+            <h5 class="text-secondary text-center"> You currently have no replies </h5>
+        </div>
+    </div>
+    <hr>
+</div>
+
+
+<!-- <div>
+    <div class="container card card-body mb-5" >
+        <h3>lets get a picture here from database</h3>
+       <img [src]="http://localhost:8080/getdocuments/1" >
+    </div >
+</div> -->

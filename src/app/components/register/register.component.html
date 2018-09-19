@@ -1,0 +1,61 @@
+<div class="card-group mx-auto mt-5 mb-5" style="width:40rem; " >
+    <div class=" container card card-body"  >
+            <div class="card-body">
+                    <h3>Register</h3>
+                    <form (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+                        <div class="alert alert-danger" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
+                        <div class="form-group" [ngClass]="{'has-error':f.submitted && !userName.valid}">
+                            <label style="font-size:14px;" class="mb-0" >Username<sup>*</sup></label>
+                            <input class="form-control" type="text" name="userName"  [(ngModel)]="user.userName" #userName="ngModel" required>
+                            <div class="text-danger error" *ngIf="f.touched && !userName.valid">Username is required</div>
+                        </div>
+                
+                        <div class="form-group" [ngClass]="{'has-error': f.submitted && !email.valid}">
+                            <label style="font-size:14px;" class="mb-0" >Email<sup>*</sup></label>
+                            <input class="form-control" type="email" name="email"  [(ngModel)]="user.email" #email="ngModel" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" required>
+                            <div *ngIf="f.touched && !email.valid" class="help-block">
+                
+                                <div class="text-danger error" *ngIf="email.touched && email.errors.required">
+                                    Email is required.
+                                </div>
+                                <div class="text-danger error" *ngIf="email.errors.pattern">
+                                    A valid email address is required
+                                </div>
+                
+                            </div>
+                        </div>
+                        <div class="form-group" [ngClass]="{'has-error': f.submitted && !password.valid}">
+                            <label style="font-size:14px;" class="mb-0"  >Password<sup>*</sup></label>
+                            <input class="form-control" type="password"  name="password" [(ngModel)]="user.password" #password="ngModel" required>
+                            <div *ngIf="f.touched && !password.valid" class="help-block">
+                
+                                <div class="text-danger error" *ngIf="password.touched && password.errors.required">
+                                    Password is required.
+                                </div>
+                                <div class="text-danger error" *ngIf="password.touched && password.errors.pattern">
+                                    Password must be at least 4 characters.
+                                </div>
+                
+                            </div>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="remember"> Remember me</label>
+                        </div>
+                        <div>
+                            <input type="submit" class="btn btn-primary btn-block mt-1" value="Register">
+                            <p class="text-center mt-2" > Already a user? <a href="/login"><u> Login Here  </u></a></p>
+                        </div>
+                
+                    </form>
+                </div>
+    <!-- </div>
+    <div class=" card card-body" >
+            <div class="card-body rounded mx-auto d-block" >
+                    <img class="image" src="https://aicd.companydirectors.com.au/~/media/cd2/resources/membership/the-boardroom-report/images/2017/issue-7/difficult-conversations-in-the-boardroom-brr-110717_650x359px.ashx?height=380&width=660" alt="think image" >
+                
+                </div>
+    </div> -->
+
+</div>
+

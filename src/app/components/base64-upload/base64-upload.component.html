@@ -1,0 +1,13 @@
+<div class="card-body" >
+<input style="display:none;" type="file" name="file" multiple (change)="onFileChange($event)" #fileInput>
+<button class="btn btn-secondary btn-sm" (click)="fileInput.click()">Add Attachment</button>
+
+<button class="btn btn-sm" (click)="onSubmit()" >upload</button> 
+  <hr> 
+<div>
+  <button class="btn btn-sm mt-4 mb-4" (click)="getFiles()" >get list of Documents</button>
+  <div *ngFor="let d of prodData">
+    <p><a href="http://localhost:8080/download-document/{{d.id}}"(click)="downloadFiles()">{{d.name}}</a></p>
+  </div>
+</div>
+</div>

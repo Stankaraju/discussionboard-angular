@@ -1,0 +1,137 @@
+// Theme Colors
+$deep-dark:   #061C3F;
+$kasmir:      #54698D;
+$biscay:      #16325C;
+$cadet-blue:  #A8B7C7;
+$lake-blue:   #0070D2;
+$endeavor:    #005FB2;
+$azure:       #1589EE;
+$geyser:      #D8DDE6;
+$link-water:  #F4F6F9;
+$white:       #FFFFFF;
+$stream:      #E0E5EE;
+$flush-mahogany: #C23934;
+$salem:       #04844B;
+$emerald:     #4BCA81;
+$peacock:     #7E8BE4;
+$saffron:     #F88962;
+$tumeric:     #FCB95B;
+$sea:         #2FBFCE;
+
+$primary:       $lake-blue ;
+$secondary:     $kasmir ;
+$success:       $emerald ;
+$info:          $azure ;
+$warning:       $tumeric ;
+$danger:        $flush-mahogany ;
+$light:         $link-water ;
+$dark:          $deep-dark ; 
+
+// button-padding
+// $input-btn-padding-y:         0.25rem ;
+// $input-btn-padding-x:         10rem ;
+$input-border-radius: 0;
+$input-btn-padding-y-sm:      0.3rem ;
+$input-btn-padding-x-sm:      0.4rem ;
+$input-btn-padding-y-lg:      0.5rem ;
+$input-btn-padding-x-lg:      1rem ;
+
+//button radius
+
+$btn-border-radius:    0px;
+$btn-border-radius-lg: 0px;
+$btn-border-radius-sm: 0px;
+
+//body background:
+//$body-bg:            #d9e1e9;
+
+// $btn-transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out ;
+
+.btn-tag{
+    padding: 0.1rem 3rem;
+    border-radius: 17px;
+    background-color: $secondary;
+    font-size: 12px;
+}
+
+.navbar-nav{
+    float: left;
+}
+
+.form-control{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.img-body{
+    height: 450px ;
+    background-repeat: no-repeat;
+    background-image: url("https://aicd.companydirectors.com.au/~/media/cd2/resources/membership/the-boardroom-report/images/2017/issue-7/difficult-conversations-in-the-boardroom-brr-110717_650x359px.ashx?height=380&width=660"),
+ 
+ }
+
+
+ router-outlet{
+     display: none;
+ }
+ .routerContainer{
+     position: relative;
+ }
+.routerContainer>* {
+    display: block;
+}
+.popover-body{
+    width: fluid ;
+    color: #212529;
+    margin-bottom: 1rem;
+    line-height: 1.6rem;
+    font-weight: 600; 
+    font-size: 0.880rem;
+    max-width: 350px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
