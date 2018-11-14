@@ -6,7 +6,7 @@
         <div class="form-group"
         [ngClass] = "{'has-error': f.submitted && !userName.valid}">
             <label style="font-size:14px;" class="mb-0"  >Username<sup>*</sup></label>
-            <input class="form-control" type="text" name="userName" 
+            <input class="form-control" aria-label="enter your username" type="text" name="userName" 
             [(ngModel)]="user.userName"
             #userName= "ngModel"
             userName.minlength=5 
@@ -19,6 +19,7 @@
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
             <label style="font-size:14px;" class="mb-0">Password<sup>*</sup></label>
             <input class="form-control" type="password" 
+            aria-label="enter your password"
             name="password" 
             [(ngModel)]="user.password"
             #password="ngModel"
@@ -33,8 +34,8 @@
                 <input type="checkbox" name="remember"> Remember me</label>
         </div>
         <div>
-            <input routerLink="/view" type="submit" class="btn btn-primary btn-block mt-1 " value="Login">
-            <p class="text-center mt-4" >Not a user? <a href="/register"><u> Register Here  </u></a></p>
+            <input routerLink="/view" type="submit" class="btn btn-primary btn-block mt-1 " value="Login" aria-label="click here to login" >
+            <p class="text-center mt-4" >Not a user? <a href="/register" aria-label="click here to register for discussion board"><u> Register Here  </u></a></p>
         </div>
     </form>
 </div>

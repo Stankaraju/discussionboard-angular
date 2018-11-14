@@ -4,22 +4,22 @@
       <div class="card card-body cd mt-3">
         <p class="mt-3 font-weight-bold">Search Topics</p>
         <label class="font-body mb-0">Search</label>
-        <input type="text form" class="form-control" placeholder="Search Text" [(ngModel)]="searchText">
+        <input type="text form" class="form-control" placeholder="Search Text" [(ngModel)]="searchText" aria-label="enter a text to search" >
         <!-- <button (click)="onSearch()" class="btn btn-secondary btn-sm mt-2 size">search</button>  -->
         <hr class="hr">
 
         <p class="mt-3 font-weight-bold">Filter Topics</p>
 
         <label class="mb-0 font-body">By Date</label>
-        <input class="form-control" type="date" [(ngModel)]="searchDate " placeholder="select">
+        <input class="form-control" type="date" [(ngModel)]="searchDate " placeholder="select" aria-label="pick a date" >
 
         <label class="mt-3 font-weight-bold">By Action</label>
         <label class="cont font-body"> Topics I Created
-          <input type="checkbox" #cb [(ngModel)]="checked">
+          <input type="checkbox" #cb [(ngModel)]="checked" aria-label="check box to filter by topics you created" >
           <span class="checkmark"></span>
         </label>
         <label class="cont font-body"> Topics I Replied
-          <input type="checkbox" #cb [(ngModel)]="check">
+          <input type="checkbox" #cb [(ngModel)]="check" aria-label="check box to filter by topics you replied" >
           <span class="checkmark"></span>
         </label>
 
@@ -39,8 +39,8 @@
     <div class="container col-8 mt-3">
       <div class="inline" *ngIf="user">
         <span class="inline">
-          <button routerLink="/create/{{user.id}}" class="btn btn-primary btn-sm pull-right  ml-2" id="1">Create New Topic</button>
-          <a href="/view" class="mt-1 mr-2 pull-right">
+          <button routerLink="/create/{{user.id}}" class="btn btn-primary btn-sm pull-right  ml-2" id="1" aria-label="click here to create a new topic" >Create New Topic</button>
+          <a href="/view" class="mt-1 mr-2 pull-right" aria-label="click here to refresh the page" >
             <i class="fa fa-refresh"></i> Refresh</a>
         </span>
         <p>Topics</p>
