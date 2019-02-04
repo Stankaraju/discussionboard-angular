@@ -29,9 +29,9 @@ import { FileUploadServiceService } from './services/file-upload-service.service
 import { HomeComponent } from './components/home/home.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SortBy } from './pipe/createTopic';
-import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+
 import { PaginationModule } from 'ngx-pagination-bootstrap';
-import { PopoverModule} from 'ngx-popover';
+
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -59,15 +59,13 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     BrowserAnimationsModule,
     NgbModule.forRoot(),
-    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     HttpModule,
     NgxPaginationModule,
-    PaginationModule,
-    PopoverModule
+    PaginationModule
     
     
    
